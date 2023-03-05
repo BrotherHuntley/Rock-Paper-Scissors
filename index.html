@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="container my-4">
+        <h1>Rock Paper Scissors</h1>
+    </header>
+
+    <div class="container">
+        <div class="row my-2">
+            <div class="col-xs-12 col-lg-3 my-2 column">
+                <div class="hud p-3">
+                    <div id="healthPoints"></div>
+                    <div class = "py-2">
+                        <button id="rock">Rock</button>
+                        <button id="paper">Paper</button>
+                        <button id="scissors">Scissors</button>
+                    </div>
+                    <div class = "py-2">
+                        <button id="fan" class="hideButton" title="Beats rock and paper">Fan</button>
+                        <button id="rollingPin" class="hideButton" title="Beats rock and scissors">Rolling Pin</button>
+                        <button id="boot" class="hideButton" title="Beats scissors and paper">Boot</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-xs-12 col-lg-6 my-2 flex-grow-lg-1 column">
+                <div class="arena">
+                    <div class="row">
+                        <div class="col-xs-6 mx-3 flex-grow-1">
+                            <div id="userChoice"></div>
+                        </div>
+                        <div class="col-xs-6 mx-3 flex-grow-1">
+                            <div id="computerChoice"></div>
+                        </div>
+                    </div>
+                    <div id="winner"></div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-lg-3 my-2 column">
+                <div class="hud p-3">
+                    <div id="monsterHealth"></div>
+                    <p>Rock Odds: <span id="rockOdds"></span></p>
+                    <p>Paper Odds: <span id="paperOdds"></span></p>
+                    <p>Scissors Odds: <span id="scissorOdds"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="userChoices" class="container text-center">
+        <p id="buffTitle" class = "hideTitle">Choose a buff</p>
+        <button id="option1" class="hideButton"></button>
+        <button id="option2" class="hideButton"></button>
+        <button id="option3" class="hideButton"></button>
+
+    </section>
+
+    <div class="container text-center">
+        <p>Monster Number: <span id="monsterNumber"></span><br></p>
+    </div>
+
+    <div id=monsterTrack class="container text-center">
+
+    </div>
+
+    <div class="container my-3 text-center">
+        <button id="newGame">New Game</button>
+    </div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+    crossorigin="anonymous"></script>
+
+<script src="./functions.js"></script>
+<script src="./objects.js"></script>
+<script src="./app.js"></script>
+
+</html>

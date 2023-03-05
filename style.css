@@ -1,0 +1,65 @@
+h1 {
+    text-align: center;
+}
+
+.hud {
+    display: inline-block;
+    border: 3px solid black;
+}
+
+.redHeart {
+    font-size: 25px;
+    color: red;
+}
+
+.blackHeart {
+    font-size: 25px;
+    color: black;
+}
+
+.hideButton, .hideTitle {
+    display: none;
+}
+
+.easyMonster {
+    font-size: 15px;
+    margin-inline: 5px;
+}
+
+.mediumMonster {
+    font-size: 20px;
+    margin-inline: 5px;
+}
+
+.bossMonster {
+    font-size: 25px;
+    margin-inline: 5px;
+}
+
+#userChoice {
+    font-size: 25px;
+}
+
+#computerChoice {
+    text-align: right;
+    font-size: 25px;
+}
+
+#winner {
+    text-align: center;
+    font-size: 25px;
+}
+
+.showButton {
+    margin: 10px;
+    padding: 5px;
+}
+
+.showTitle {
+    display: block;
+    font-size: 20px;
+}
+
+.column {
+    text-align: center;
+}
