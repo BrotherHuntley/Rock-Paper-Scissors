@@ -13,31 +13,29 @@
 </head>
 
 <body>
-    <header class=" container my-5">
+    <header class="container my-5">
         <div class="hero">
             <h1>Ultimate Rock Paper Scissors</h1>
         </div>
     </header>
-    <nav class="container">
-        <div class="menu p-3">
-            <a href="./bestofone.html" target="_self">
-                <div class="button blueBorder my-2">
-                    Best of 1
-                </div>
-            </a>
-            <a href="./bestofthree.html" target="_self">
-                <div class="button blueBorder my-2">
-                    Best of 3
-                </div>
-            </a>
-            <a href="./intro.html" target="_self">
-                <div class="button blueBorder my-2">
-                    Roguelike
-                </div>
-            </a>
-        </div>
-    </nav>
+
+    <div class="container text-center">
+        <form action="./game.html" id="myForm">
+            <label for="gamerName">Name Your Hero</label><br>
+            <input type="text" id="gamerName" maxlength="30"><br><br>
+            <button type="submit">Submit</button>
+
+        </form>
+    </div>
+
 
 </body>
 
+<script src="./objects.js"></script>
+<script>
+    let form = document.getElementById("myForm")
+    form.addEventListener("submit", function (event) {
+        localStorage.setItem('gamerName', form.elements[0].value);
+})
+</script>
 </html>

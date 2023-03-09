@@ -39,42 +39,42 @@ let updateHUD = function () {
     document.getElementById("paperOdds").innerHTML = String(computerOdds.paperOdds * 100).slice(0, 5) + "%";
     document.getElementById("scissorOdds").innerHTML = String(computerOdds.scissorOdds * 100).slice(0, 5) + "%";
     document.getElementById("monsterNumber").innerHTML = userState.currentRound;
+    document.getElementById("playerName").innerHTML = localStorage.getItem('gamerName') === null ? "Player 1": localStorage.getItem('gamerName');
 
     var hearts = "";
     var shields = "";
     for (var i = 1; i <= userHP.maxHP; i++) {
         if (userHP.currentHP >= i) {
-            hearts += "<span class=\"redHeart\">&#9829;</span>"
+            hearts += "<span class=\"fa fa-heart redHeart\">&nbsp;</span>"
         } else {
-            hearts += "<span class=\"blackHeart\">&#9829;</span>"
+            hearts += "<span class=\"fa fa-heart blackHeart\">&nbsp;</span>"
         }
     }
     for (var i = 0; i < userHP.shield; i++) {
-        shields += "<span class=\"shield\">&#128737;&#65039;</span>"
+        shields += "<span class=\"fa fa-shield shield\">&nbsp;</span>"
     }
     document.getElementById("healthPoints").innerHTML = hearts + shields;
 
     var monsterHearts = ""
     for (var i = monster.winsRequired; i > 0; i--) {
         if (monster.currentWins < i) {
-            monsterHearts += "<span class=\"redHeart\">&#9829;</span>";
+            monsterHearts = "<span class=\"fa fa-heart redHeart\">&nbsp;</span>" + monsterHearts;
         } else {
-            monsterHearts += "<span class=\"blackHeart\">&#9829;</span>";
+            monsterHearts = "<span class=\"fa fa-heart blackHeart\">&nbsp;</span>" + monsterHearts;
         }
     }
     document.getElementById("monsterHealth").innerHTML = monsterHearts;
 
     var monsterBubbles = "";
+
     for (var i = 0; i < monsters.length; i++) {
-        var isBeatColor = ""
-        if (userState.currentRound > i + 1) {
-            isBeatColor = "&#128994;"
-        } else if (userState.currentRound === i + 1) {
-            isBeatColor = "&#128993;"
+        if (userState.currentRound  === i + 1) {
+            monsterBubbles += "<span class=\"playerIcon\">" + "<img src=\"./images/hero.png\">" + "</span><span class=\"" + monsters[i].level + "Monster\">" + "<img src=\"./images/monster.png\" class=\"" + monsters[i].level + "Monster\">" + "</span>";
+        } else if (userState.currentRound  > i + 1) {
+            monsterBubbles += "<span class=\"" + monsters[i].level + "Monster\">" + "<img src=\"./images/monsterDead.png\" class=\"" + monsters[i].level + "Monster\">" + "</span>";
         } else {
-            isBeatColor = "&#128308;"
+            monsterBubbles += "<span class=\"" + monsters[i].level + "Monster\">" + "<img src=\"./images/monster.png\" class=\"" + monsters[i].level + "Monster\">" + "</span>";
         }
-        monsterBubbles += "<span class=\"" + monsters[i].level + "Monster\">" + isBeatColor + "</span>";
     }
     document.getElementById("monsterTrack").innerHTML = monsterBubbles;
 }
@@ -102,8 +102,8 @@ let monsterGenerator = function (challenge) {
 let userChoice = function (event) {
     if (userState.gameState === "battle") {
         var result = battle(event.target.id);
-        document.getElementById("userChoice").innerHTML = "<img src=\"./images/" + event.target.id +".png\" width=\"100px\">";
-        document.getElementById("computerChoice").innerHTML = "<img src=\"./images/" + result[1] +".png\" width=\"100px\">";
+        document.getElementById("userChoice").innerHTML = "<img src=\"./images/" + event.target.id +"Player.png\" class=\"rpsImage\">";
+        document.getElementById("computerChoice").innerHTML = "<img src=\"./images/" + result[1] +"Enemy.png\" class=\"rpsImage\">";
         if (result[0] === "win") {
             monster.addWin();
             document.getElementById("winner").innerHTML = "You win!";
@@ -167,7 +167,7 @@ let gameReset = function () {
     thisGameBuffs = buffs.slice()
     document.getElementById("userChoice").innerHTML = "";
     document.getElementById("computerChoice").innerHTML = "";
-    document.getElementById("winner").innerHTML = "";
+    document.getElementById("winner").innerHTML = "&nbsp;";
     monsterList();
     updateHUD();
 }
@@ -192,19 +192,22 @@ let monsterList = function () {
 }
 
 let buffDisplay = function () {
+    
     var buffChoiceNumber = 3
     arr = [];
     while (arr.length < buffChoiceNumber) {
         var r = Math.floor(Math.random() * thisGameBuffs.length);
         if (arr.indexOf(r) === -1) arr.push(r);
     }
-    document.getElementById("buffTitle").className = "showTitle"
+    console.log(thisGameBuffs[arr[0]].name)
+    document.getElementById("buffTitle").innerHTML = "Choose a Buff"
     document.getElementById("option1").innerHTML = thisGameBuffs[arr[0]].name;
     document.getElementById("option1").className = "showButton"
     document.getElementById("option2").innerHTML = thisGameBuffs[arr[1]].name;
     document.getElementById("option2").className = "showButton"
     document.getElementById("option3").innerHTML = thisGameBuffs[arr[2]].name;
     document.getElementById("option3").className = "showButton"
+    document.getElementById("blankSpace").innerHTML = ""
 }
 
 let buffChoice = function (event) {
@@ -218,11 +221,12 @@ let buffChoice = function (event) {
 }
 
 let buffReset = function() {
-    document.getElementById("buffTitle").className = "hideTitle"
+    document.getElementById("buffTitle").innerHTML = "&nbsp;"
     document.getElementById("option1").innerHTML = "";
     document.getElementById("option1").className = "hideButton"
     document.getElementById("option2").innerHTML = "";
     document.getElementById("option2").className = "hideButton"
     document.getElementById("option3").innerHTML = "";
     document.getElementById("option3").className = "hideButton"
+    document.getElementById("blankSpace").innerHTML = "&nbsp;"
 }

@@ -1,58 +1,93 @@
-h1 {
+body {
+    background-color: #121212;
+    color: white;
+}
+
+.menu {
+    margin-inline: auto;
+    width: 223px;
     text-align: center;
 }
 
-.hud {
-    display: inline-block;
-    border: 3px solid black;
+.menuOption {
+
+    width: 185px;
+    text-align: center;
+    border: solid 1px black;
+}
+
+.menuOption>*>* {
+    padding: 30px;
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+
+}
+
+h1>a {
+    color: white;
+}
+
+h1>a:hover {
+    color: white;
 }
 
 .redHeart {
     font-size: 25px;
-    color: red;
+    color: #D80BA1;
 }
 
 .blackHeart {
-    font-size: 25px;
-    color: black;
+    font-size: 20px;
+    color: #555;
 }
 
-.hideButton, .hideTitle {
+.shield {
+    font-size: 25px;
+    color: #39ace7;
+}
+
+.hideButton,
+.hideTitle {
     display: none;
 }
 
+.showButton {
+    display: default;
+}
+
 .easyMonster {
-    font-size: 15px;
-    margin-inline: 5px;
+    width: 40px;
 }
 
 .mediumMonster {
-    font-size: 20px;
-    margin-inline: 5px;
+    width: 50px;
 }
 
 .bossMonster {
-    font-size: 25px;
-    margin-inline: 5px;
+    width: 70px;
 }
 
-#userChoice {
-    font-size: 25px;
+.playerIcon>img {
+    width: 60px;
 }
 
-#computerChoice {
-    text-align: right;
-    font-size: 25px;
+.rpsImage {
+    position: relative;
+    width: 275px;
+    top: 50px;
 }
 
 #winner {
     text-align: center;
     font-size: 25px;
+    margin-top: 20px;
 }
 
-.showButton {
-    margin: 10px;
-    padding: 5px;
+#blankSpace {
+    line-height: 30px;
 }
 
 .showTitle {
@@ -62,4 +97,219 @@ h1 {
 
 .column {
     text-align: center;
+}
+
+.userChoices {
+    line-height: 25px;
+}
+
+/* ////////////////////////////////////////// */
+
+.nameBox {
+    display: inline-block;
+    position: absolute;
+    background-color: #121212;
+    padding-inline: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 445px;
+}
+
+.blueBorder {
+    border: 3px solid #39ace7;
+    box-shadow: 0 0 7px #39ace7;
+}
+
+.pinkBorder {
+    border: 3px solid #D80BA1;
+    box-shadow: 0 0 7px #D80BA1;
+}
+
+.playerBoard {
+    height: 375px;
+}
+
+#userChoice,
+#computerChoice {
+    text-align: center;
+}
+
+#playerName {
+    top: -18px;
+    left: 15px;
+}
+
+#enemyName {
+    top: -18px;
+    right: 15px;
+}
+
+.playerName {
+    display: inline-block;
+    width: 145px;
+    margin-bottom: 0;
+    line-height: 30px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hud {
+    border-top: 0;
+    padding-inline: 15px;
+    line-height: 29px;
+    padding-top: 8px;
+    margin: 0;
+}
+
+.enemyHud {
+    text-align: end;
+}
+
+.odds {
+    line-height: 20px;
+    margin: 0;
+}
+
+.playerButtons {
+    padding-block: 12px;
+    line-height: 30px;
+}
+
+button,
+.button {
+    background-color: #121212;
+    color: white;
+    border: 2px solid #39ace7;
+    box-shadow: 1px 1px 2px #39ace7;
+    transition: background-color 0.2s;
+}
+
+button:hover,
+.button:hover {
+    background-color: #202e33;
+    color: white;
+    border: 2px solid #39ace7;
+    box-shadow: 1px 1px 5px #39ace7;
+    text-decoration: none !important;
+}
+
+.enemyName {
+    margin-bottom: 0;
+    line-height: 30px;
+}
+
+.enemyBoard {
+    border: 3px solid #D80BA1;
+    box-shadow: 0 0 10px #D80BA1;
+    height: 375px;
+}
+
+.vsText {
+    font-size: 100px;
+}
+
+.playerDot {
+    color: #39ace7
+}
+
+#cpuWinTracker {
+    text-align: end;
+}
+
+.cpuDot {
+    color: #D80BA1;
+}
+
+@media (max-width: 1199px) {
+
+    .playerBoard,
+    .enemyBoard {
+        height: 300px;
+    }
+
+    .rpsImage {
+        position: relative;
+        width: 200px;
+        top: 50px;
+    }
+
+    .nameBox {
+        max-width: 370px;
+    }
+
+}
+
+@media (max-width: 991px) {
+
+    .playerBoard,
+    .enemyBoard {
+        height: 200px;
+    }
+
+    .vsText {
+        font-size: 75px;
+    }
+
+    #playerName,
+    #enemyName {
+        right: 20px;
+        left: 20px;
+    }
+
+    .rpsImage {
+        position: relative;
+        width: 150px;
+        top: 25px;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .playerBoard,
+    .enemyBoard {
+        height: 225px;
+    }
+
+    .vsText {
+        font-size: 50px;
+    }
+
+    #playerName,
+    #enemyName {
+        right: 20px;
+        left: 20px;
+    }
+}
+
+@media (max-width: 575px) {
+
+    .playerBoard,
+    .enemyBoard {
+        height: 225px;
+    }
+
+    .vsText {
+        font-size: 50px;
+    }
+}
+
+a:link {
+    text-decoration: none;
+}
+
+
+a:visited {
+    text-decoration: none;
+}
+
+
+a:hover {
+    text-decoration: none;
+}
+
+
+a:active {
+    text-decoration: none;
 }

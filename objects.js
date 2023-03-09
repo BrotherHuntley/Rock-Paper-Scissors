@@ -57,7 +57,7 @@ let monsters = {
 
 let userState = {
     currentRound: 1,
-    gameState: "battle"
+    gameState: "battle",
 }
 
 let buffs = [
@@ -140,7 +140,7 @@ let buffs = [
     {
         name: "Gain a boot (beats scissors and paper, rock destroys it)",
         effect: function() {
-            document.getElementById("rollingPin").className = "showButton"
+            document.getElementById("boot").className = "showButton"
         }
     },
 ]
